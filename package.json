@@ -1,0 +1,14 @@
+{
+  "name": "itoldo",
+  "version": "1.0.0",
+  "description": "A bunch of scripts to make my awning intelligent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cotel",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
