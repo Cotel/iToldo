@@ -4,11 +4,18 @@
   "description": "A bunch of scripts to make my awning intelligent",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest ./test",
+    "testWatch": "jest ./test --watch",
+    "build": "./node_modules/typescript/bin/tsc"
   },
   "author": "Cotel",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "asciichart": "^1.5.25",
+    "jest": "^27.3.1",
+    "nodeplotlib": "^0.7.6",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
   }
 }

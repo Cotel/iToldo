@@ -7,3 +7,5 @@ npm-debug.log*
 .npm
 
 node_modules/
+build/
+.vscode/
