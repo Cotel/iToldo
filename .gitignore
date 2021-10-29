@@ -6,6 +6,9 @@ npm-debug.log*
 # npm cache directory
 .npm
 
+# Secrets
+.env
+
 node_modules/
 build/
 .vscode/

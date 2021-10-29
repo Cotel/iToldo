@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest ./test",
     "testWatch": "jest ./test --watch",
-    "build": "./node_modules/typescript/bin/tsc"
+    "build": "./node_modules/typescript/bin/tsc",
+    "start": "node ./build/main.js"
   },
   "author": "Cotel",
   "license": "ISC",
@@ -16,6 +17,12 @@
     "jest": "^27.3.1",
     "nodeplotlib": "^0.7.6",
     "ts-jest": "^27.0.7",
+    "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "tuyapi": "github:codetheweb/tuyapi"
   }
 }

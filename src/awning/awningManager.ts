@@ -1,5 +1,6 @@
 import { AwningPosition } from "./types";
 
-interface AwningManager {
-    setPosition(position: AwningPosition): void
+export interface AwningManager {
+    setPosition(position: AwningPosition): Promise<void>
+    disconnect(): void
 }
