@@ -3,6 +3,14 @@ import * as winston from "winston"
 import { determineAwningPosition } from "./awning/functions"
 import { TuyaAwningManagerFactory } from "./awning/tuyaAwningManager"
 import { OpenWWeatherClient } from "./weather/openWeather"
+import { isClouds, isRain, isThunderstorm, Weather } from "./weather/types"
+
+const weatherType = (weather: Weather): string | null => {
+    if (isRain(weather)) return 'Rain'
+    if (isClouds(weather)) return "Clouds"
+    if (isThunderstorm(weather)) return "Thunderstorm"
+    return null
+}
 
 (async () => {
     dotenv.config({ path: __dirname + "/../.env" })
@@ -22,7 +30,9 @@ import { OpenWWeatherClient } from "./weather/openWeather"
     const currentWeather = await weatherClient.getCurrentWeather()
     const currentWindSpeed = await weatherClient.getWindSpeed()
     const sunTimes = await weatherClient.getSunTimes()
-    logger.info(`Current weather: ${currentWeather} | Current wind speed: ${currentWindSpeed}km/h`)
+
+    const weatherString = weatherType(currentWeather) ? `${weatherType(currentWeather)} (${currentWeather})` : currentWeather
+    logger.info(`Current weather: ${weatherString} | Current wind speed: ${currentWindSpeed}km/h`)
 
     const awningPosition = determineAwningPosition(currentWeather, currentWindSpeed, sunTimes)
     logger.info(`Setting awning to ${awningPosition}`)

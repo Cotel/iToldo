@@ -7,7 +7,7 @@ type OpenWeatherWeather = 'Thunderstorm' | 'Drizzle' | 'Rain' | 'Snow' | 'Clear'
 interface OpenWeatherResponse {
     weather: [{ main: OpenWeatherWeather, description: string }],
     main: { temp: number, temp_min: number, temp_max: number, humidity: number, feels_like: number },
-    wind: { speeg: number, deg: number },
+    wind: { speed: number, deg: number },
     sys: { sunrise: number, sunset: number }
 }
 
@@ -17,7 +17,7 @@ export class OpenWWeatherClient implements WeatherClient {
     async getWindSpeed(): Promise<number> {
         if (!this.currentWeather) { await this.makeCurrentWeatherRequest() }
 
-        return this.currentWeather.wind.speeg * 3.6
+        return this.currentWeather.wind.speed * 3.6
     }
 
     async getCurrentWeather(): Promise<Weather> {
