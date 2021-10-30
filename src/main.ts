@@ -4,7 +4,7 @@ import { TuyaAwningManagerFactory } from "./awning/tuyaAwningManager"
 import { OpenWWeatherClient } from "./weather/openWeather"
 
 (async () => {
-    dotenv.config()
+    dotenv.config({ path: __dirname + "/../.env" })
 
     const weatherClient = new OpenWWeatherClient()
     const awningManager = await TuyaAwningManagerFactory.create()
