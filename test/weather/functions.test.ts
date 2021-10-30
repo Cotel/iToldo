@@ -28,22 +28,20 @@ describe("isWeatherRainyEnough", () => {
         expect(isWeatherRainyEnough("Drizzle")).toBeTruthy()
     })
 
-    test("if weather is cloudy with Broken it should return true", () => {
-        expect(isWeatherRainyEnough("Broken")).toBeTruthy()
-    })
+    test("if weather is cloudy it should return true", () => {
+        const clouds: Array<Clouds> = [
+            "Few", "Scattered", "Broken", "Overcast"
+        ]
 
-    test("if weather is cloudy with Overcast it should return true", () => {
-        expect(isWeatherRainyEnough("Overcast")).toBeTruthy()
+        const areRainyWeathers = clouds.map(w => isWeatherRainyEnough(w))
+
+        expect(areRainyWeathers.every(c => c === true)).toBeTruthy()
     })
 
     test("every other weather should return false", () => {
-        const clouds: Array<Clouds> = [
-            "Few", "Scattered"
-        ]
-
         const weathers: Array<Weather> = ([
             "Clear", "Mist", "Haze", "Fog"
-        ] as Weather[]).concat(clouds as Weather[])
+        ] as Weather[])
 
         const areRainyWeathers = weathers.map(w => isWeatherRainyEnough(w))
 

@@ -1,4 +1,4 @@
-import { Clouds, isClouds, isRain, isThunderstorm, Weather } from "./types"
+import { isClouds, isRain, isThunderstorm, Weather } from "./types"
 
 export function isWeatherRainyEnough(weather: Weather): boolean {
     if (isRain(weather)) {
@@ -10,11 +10,7 @@ export function isWeatherRainyEnough(weather: Weather): boolean {
     }
 
     if (isClouds(weather)) {
-        switch (weather as Clouds) {
-            case "Few": return false
-            case "Scattered": return false
-            default: return true
-        }
+        return true
     }
 
     if (weather === "Drizzle") {
