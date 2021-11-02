@@ -7,11 +7,13 @@
     "test": "jest ./test",
     "testWatch": "jest ./test --watch",
     "build": "./node_modules/typescript/bin/tsc",
-    "start": "node ./build/main.js"
+    "start": "node ./build/main.js",
+    "queueReceiver": "node ./build/queueReceiver.js"
   },
   "author": "Cotel",
   "license": "ISC",
   "devDependencies": {
+    "@types/cron": "^1.7.3",
     "@types/jest": "^27.0.2",
     "@types/winston": "^2.4.4",
     "asciichart": "^1.5.25",
@@ -22,9 +24,13 @@
     "typescript": "^4.4.4"
   },
   "dependencies": {
+    "aws-sdk": "^2.1019.0",
     "axios": "^0.24.0",
+    "cron": "^1.8.2",
     "dotenv": "^10.0.0",
+    "sqs-consumer": "5.6.0",
     "tuyapi": "github:codetheweb/tuyapi",
-    "winston": "^3.3.3"
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.5"
   }
 }

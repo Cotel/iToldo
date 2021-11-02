@@ -8,6 +8,7 @@ npm-debug.log*
 
 # Secrets
 .env
+aws_secrets.csv
 
 node_modules/
 build/
