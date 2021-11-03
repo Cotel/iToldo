@@ -58,10 +58,11 @@ const logger = winston.createLogger({
 const app = Consumer.create({
     queueUrl: process.env.AWS_QUEUE_URL,
     handleMessage: async (message: QueueMessage) => {
-        logger.info(message)
-
-        if (isAutomaticModeStatus(message)) {
-            switch (message) {
+        const messageBody = message.Body
+        logger.info(messageBody)
+        
+        if (isAutomaticModeStatus(messageBody)) {
+            switch (messageBody) {
                 case "automaticOn":
                     switchOnAutomaticStatus()
                 case "automaticOff":
