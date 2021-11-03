@@ -65,8 +65,10 @@ const app = Consumer.create({
             switch (messageBody) {
                 case "automaticOn":
                     switchOnAutomaticStatus()
+                    break
                 case "automaticOff":
                     switchOffAutomaticStatus()
+                    break
             }
         }
     },
